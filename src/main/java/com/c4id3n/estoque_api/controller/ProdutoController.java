@@ -2,6 +2,7 @@ package com.c4id3n.estoque_api.controller;
 
 import java.util.List;
 
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -15,6 +16,8 @@ import com.c4id3n.estoque_api.dto.BuyRequest;
 import com.c4id3n.estoque_api.dto.CreateProductRequest;
 import com.c4id3n.estoque_api.model.Produto;
 import com.c4id3n.estoque_api.service.ProdutoService;
+
+import jakarta.validation.Valid;
 
 // Por que deste arquivo?
 // Este arquivo é a porta de entrada para as requisições HTTP (GET, POST e etc).
@@ -40,10 +43,10 @@ public class ProdutoController {
     // Converte o DTO para a entidade "Produto".
     // Chama o serviço para salvar no banco de dados e retorna a resposta com o produto salvo.
     @PostMapping
-    public ResponseEntity<Produto> create(@Validated @RequestBody CreateProductRequest req){
+    public ResponseEntity<Produto> create(@Valid @RequestBody CreateProductRequest req){
         Produto p = new Produto(req.nome, req.quantidade, req.preco);
         Produto saved = service.create(p);
-        return ResponseEntity.ok(saved);
+        return ResponseEntity.status(HttpStatus.CREATED).body(saved);
     }
     
     // "@GetMapping" indica que esse método responde a requisições GET em "/api/produtos".
@@ -71,6 +74,6 @@ public class ProdutoController {
     @PostMapping("/{id}/buy")
     public ResponseEntity<Produto> buy(@PathVariable Long id, @Validated @RequestBody BuyRequest req){
         Produto updated = service.buy(id, req.quantidade);
-        return ResponseEntity.ok(updated);
+        return ResponseEntity.status(HttpStatus.OK).body(updated);
     }
 }

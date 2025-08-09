@@ -22,13 +22,17 @@ public class Produto {
     private Long id;
 
     // Aqui estamos classificando o NOME para cada produto
+    @Column(nullable = false, length = 100) // O "nullable = false" diz que o nome não pode ser nulo e "length = 100" limita o tamanho do nome a 100 caracteres
     private String nome;
     
-    // Aqui estamos classificando a QUANTIDADE em estoque de cada produto 
+    // Aqui estamos classificando a QUANTIDADE em estoque de cada produto
+    // O "nullable = false" diz que a quantidade não pode ser nula, ou seja, deve ter um valor definido.
+    // O tipo "int" é usado para representar a quantidade de produtos em estoque.
+    @Column(nullable = false)
     private int quantidade;
 
     // Aqui estamos classificando o PREÇO de cada produto 
-    @Column(precision = 19, scale = 2)
+    @Column(nullable= false, precision = 19, scale = 2)
     private BigDecimal preco;
 
     // Aqui estamos cuidando de possíveis bugs futuros de compra simultânea.

@@ -37,18 +37,18 @@ A aplicação estará disponível em: `http://localhost:8080/api/produtos`
 
 | Método | Endpoint                     | Descrição                          |
 |--------|------------------------------|------------------------------------|
-| POST   | `/api/produtos`              | Criar um novo produto              |
 | GET    | `/api/produtos`              | Listar todos os produtos           |
-| GET    | `/api/produtos/{id}`         | Buscar produto por ID              |
-| POST   | `/api/produtos/{id}/comprar` | Comprar produto (diminuir estoque) |
+| GET   | `/api/produtos/{id}`          | Buscar produto por ID              |
+| POST    | `/api/produtos/`            | Criar um novo produto              |
+| POST   | `/api/produtos/{id}/buy`     | Comprar produto (diminuir estoque) |
 
 ## Exemplos de requisição
 
 ### Criar Produto
 
+- POST /api/produtos
+- Content-Type: application/json
 ```json
-POST /api/produtos
-Content-Type: application/json
 
 {
   "nome": "Caneta",
@@ -59,14 +59,21 @@ Content-Type: application/json
 
 ### Comprar Produto
 
-POST /api/produtos/1/comprar
-Content-Type: application/json
+- POST /api/produtos/1/buy
+- Content-Type: application/json
 ```json
 
 {
   "quantidade": 5
 }
 ```
+
+### Imagens
+
+![Lista de produtos](imagens/List-Products.jpeg)
+![Pesquisa de produto por ID](imagens/List-Product-ID.jpeg)
+![Criação de produtos](imagens/Create-Product.jpeg)
+![Compra de produto](imagens/Buy-Product.jpeg)
 
 ## Tratamento de erros
 
@@ -86,5 +93,3 @@ Content-Type: application/json
 Este projeto está licenciado sob a licença MIT. Veja o arquivo [LICENSE](LICENSE) para detalhes.
 
 ---
-
-Feito com ❤️ por você!
