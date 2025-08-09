@@ -59,9 +59,9 @@ Content-Type: application/json
 
 ### Comprar Produto
 
-```json
 POST /api/produtos/1/comprar
 Content-Type: application/json
+```json
 
 {
   "quantidade": 5
