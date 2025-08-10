@@ -1,3 +1,5 @@
+[README in English](README-en.md)
+
 # Estoque API
 
 API REST para gerenciamento de estoque de produtos.
@@ -7,7 +9,7 @@ API REST para gerenciamento de estoque de produtos.
 - Java 21
 - Spring Boot
 - Spring Data JPA
-- PostgreSQL (produção)
+- PostgreSQL
 - Jakarta Validation
 
 ## Funcionalidades
@@ -16,14 +18,15 @@ API REST para gerenciamento de estoque de produtos.
 - Listar todos os produtos
 - Consultar produto por ID
 - Comprar produtos (atualiza a quantidade em estoque com validação)
+- Repor estoque de um produto
 
 ## Como rodar
 
 ### Pré-requisitos
 
-- Java 21 instalado
+- Java 21
 - Maven
-- PostgreSQL instalado e rodando
+- PostgreSQL
 
 ### Rodando com Maven
 
