@@ -30,7 +30,7 @@ REST API for product inventory management.
 
 ### Running with Maven
 
-#### Using H2 (test environment)
+#### Comando
 ```bash
 ./mvnw spring-boot:run
 ```
