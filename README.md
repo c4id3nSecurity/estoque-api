@@ -7,7 +7,7 @@ API REST para gerenciamento de estoque de produtos.
 - Java 21
 - Spring Boot
 - Spring Data JPA
-- PostgreSQL (produção)
+- PostgreSQL
 - Jakarta Validation
 
 ## Funcionalidades
