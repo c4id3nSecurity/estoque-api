@@ -10,7 +10,6 @@ CREATE TABLE IF NOT EXISTS produtos (
     nome VARCHAR(100) NOT NULL,
     quantidade INTEGER NOT NULL,
     preco NUMERIC(19,2) NOT NULL,
-    version BIGINT,
     
     CONSTRAINT pk_produtos PRIMARY KEY (id)
 );

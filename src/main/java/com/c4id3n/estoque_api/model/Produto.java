@@ -8,7 +8,6 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
-import jakarta.persistence.Version;
 
 // Uso "BigDecimal" para valores monetários, pois evita erros de pontos flutuantes
 
@@ -34,17 +33,6 @@ public class Produto {
     // Aqui estamos classificando o PREÇO de cada produto 
     @Column(nullable= false, precision = 19, scale = 2)
     private BigDecimal preco;
-
-    // Aqui estamos cuidando de possíveis bugs futuros de compra simultânea.
-    // Exemplo: Temos um produto que tem em estoque uma quantidade de 10 unidades.
-    // O usuário A compra 3 unidades e o usuário B compra 5 unidades, e ambos compram ao mesmo tempo.
-    // Para o usuário A: 10 - 3 = 7 (Salvo no banco de dados)
-    // Para o usuário B: 10 - 5 = 5 (Aqui ocorre um cálculo errado, pois A já comprou. Na realidade, deveria ser 7 - 5 = 2)
-    // Quando o usuário A salva no banco de dados, o estoque fica com 7 unidades.
-    // Com esse bug, para o usuário B, ainda apareceriam 10 unidades em estoque, mas na realidade deveriam aparecer 7 unidades, resultando em 7 - 5 = 2.
-    // É exatamente isso que estamos tratando aqui. Isso é chamado de 'lost update' (atualização perdida).
-    @Version
-    private Long version;
 
     // Você deve estar se perguntando 'Por que ele chamou o Produto duas vezes?', e aqui vai a resposta:
     // Quando chamo o Produto vazio pela primeira vez, ele me permite criar um objeto sem inicializar todos os campos imediatamente.
