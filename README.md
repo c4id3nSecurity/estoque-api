@@ -63,14 +63,16 @@ spring.flyway.baseline-on-migrate=true
 | GET    | `/api/produtos/{id}`         | Buscar produto por ID              |
 | POST   | `/api/produtos`              | Criar um novo produto              |
 | POST   | `/api/produtos/{id}/buy`     | Comprar produto (diminuir estoque) |
+| POST   | `/api/produtos/{id}/restock` | Repor estoque de um produto        |
 
 ## Exemplos de requisição
 
 ### Criar Produto
-```http
-POST /api/produtos
-Content-Type: application/json
 
+- POST /api/produtos
+- Content-Type: application/json
+
+```http
 {
   "nome": "Caneta",
   "quantidade": 100,
@@ -79,12 +81,21 @@ Content-Type: application/json
 ```
 
 ### Comprar Produto
-```http
-POST /api/produtos/1/buy
-Content-Type: application/json
 
+- POST /api/produtos/1/buy
+- Content-Type: application/json
+```http
 {
   "quantidade": 5
+}
+```
+### Repor Estoque
+
+- POST /api/produtos/1/restock
+- Content-Type: application/json
+```json
+{
+  "quantidade": 50
 }
 ```
 
@@ -94,6 +105,7 @@ Content-Type: application/json
 ![Pesquisa de produto por ID](imagens/List-Product-ID.jpeg)
 ![Criação de produtos](imagens/Create-Product.jpeg)
 ![Compra de produto](imagens/Buy-Product.jpeg)
+![Restock de produto](imagens/Restock-Product.jpeg)
 
 ## Tratamento de erros
 

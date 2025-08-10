@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.c4id3n.estoque_api.dto.BuyRequest;
 import com.c4id3n.estoque_api.dto.CreateProductRequest;
+import com.c4id3n.estoque_api.dto.RestockRequest;
 import com.c4id3n.estoque_api.model.Produto;
 import com.c4id3n.estoque_api.service.ProdutoService;
 
@@ -74,6 +75,12 @@ public class ProdutoController {
     @PostMapping("/{id}/buy")
     public ResponseEntity<Produto> buy(@PathVariable Long id, @Validated @RequestBody BuyRequest req){
         Produto updated = service.buy(id, req.quantidade);
+        return ResponseEntity.status(HttpStatus.OK).body(updated);
+    }
+
+    @PostMapping("/{id}/restock")
+    public ResponseEntity<Produto> restock(@PathVariable Long id, @Validated @RequestBody RestockRequest req) {
+        Produto updated = service.restock(id, req.quantidade);
         return ResponseEntity.status(HttpStatus.OK).body(updated);
     }
 }

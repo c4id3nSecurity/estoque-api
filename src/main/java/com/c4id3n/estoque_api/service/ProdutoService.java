@@ -80,4 +80,14 @@ public class ProdutoService {
         // Mesmo com o @Transactional, é uma boa prática retornar o objeto atualizado.
         return repo.save(p);
     }
+
+    public Produto restock(Long id, int quantidade) {
+        Produto p = getById(id);
+        if (p == null) {
+            throw new RuntimeException("Produto não encontrado");
+        }
+
+        p.setQuantidade(p.getQuantidade() + quantidade);
+        return repo.save(p);
+    }
 }
