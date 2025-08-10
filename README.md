@@ -16,6 +16,7 @@ API REST para gerenciamento de estoque de produtos.
 - Listar todos os produtos
 - Consultar produto por ID
 - Comprar produtos (atualiza a quantidade em estoque com validação)
+- Repor estoque de um produto
 
 ## Como rodar
 
