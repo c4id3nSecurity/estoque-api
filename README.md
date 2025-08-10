@@ -30,7 +30,7 @@ API REST para gerenciamento de estoque de produtos.
 
 ### Rodando com Maven
 
-#### Usando H2 (ambiente de teste)
+#### Comando
 ```bash
 ./mvnw spring-boot:run
 ```
