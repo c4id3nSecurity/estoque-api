@@ -12,7 +12,7 @@ import jakarta.persistence.Version;
 
 // Uso "BigDecimal" para valores monetários, pois evita erros de pontos flutuantes
 
-@Entity // Basicamente o "@Entity" é para dizer ao SpringBoot que esta classe deve ser mapeada como uma tabela
+@Entity(name = "produtos") // Basicamente o "@Entity" é para dizer ao SpringBoot que esta classe deve ser mapeada como uma tabela
 @Table(name = "produtos")
 public class Produto {
 
